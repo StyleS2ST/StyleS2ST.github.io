@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+<!-- Begin Jekyll SEO tag v2.7.1 -->
+<title>StyleS2ST: Zero-shot Style Transfer for Direct Speech-to-speech Translation</title>
+<meta name="generator" content="Jekyll v3.9.0">
+<meta property="og:title" content="TODO: title">
+<meta property="og:locale" content="en_US">
+<link rel="canonical" href="https://StyleS2ST.github.io/StyleS2ST/">
+<meta property="og:url" content="https://StyleS2ST.github.io/StyleS2ST/">
+<meta name="twitter:card" content="summary">
+<!-- End Jekyll SEO tag -->
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#157878">
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body data-new-gr-c-s-check-loaded="14.1001.0" data-gr-ext-installed="">
+    <section class="page-header">
+    <!-- <h1 class="project-name">Demo PAGE</h1> -->
+    <!-- <h2 class="project-tagline"></h2> -->
+
+
+    </section>
+
+<section class="main-content">
+      <h1 id=""><center>StyleS2ST: Zero-shot Style Transfer for Direct Speech-to-speech Translation</center></h1>
+
+
+<h2>0. Contents</h2>
+<ol>
+<li><a href="#abstract"><h3>Abstract</h3></a></li>
+<li><a href="#zeroshot"><h3>Demos on Unseen Speakers (Zero-shot)</h3></a></li>
+
+<li><a href="#inset"><h3>Demos on Seen Speakers (In-set)</h3></a></li>
+
+</ol>
+
+<br><br>
+<h2 id="abstract">1. Abstract<a name="abstract"></a></h2>
+Direct speech-to-speech translation (S2ST) has gradually become popular as it has many advantages compared with cascade S2ST. However, current research mainly focuses on the accuracy of semantic translation and ignores the style transfer from a source language to a target language. The lack of high-fidelity expressive parallel data makes such style transfer challenging, especially in more practical zero-shot scenarios. To solve this problem, we first build a parallel corpus using a multi-lingual multi-speaker text-to-speech synthesis (TTS) system and propose the StyleS2ST model based on a style adaptor on a direct S2ST system framework. Enabling continuous style space modeling of acoustic models through parallel corpus training and non-parallel TTS data augmentation, StyleS2ST captures cross-lingual acoustic feature conversion from source to target language. Experiments show that StyleS2ST achieves good style similarity and naturalness in both in-set and out-of-set zero-shot scenarios.
+	<center><img src='model.png'></center>
+  <br>
+  <!-- <center><img src='raw/fig/decoder.png'></center> -->
+<br><br>
+
+<h2>2. Demos on Unseen Speakers (Zero-shot)<a name="zeroshot"></a></h2>
+<!-- <p>We train a multi-speaker multi-language vocoder as a universal vocoder (not fine-tune) using 295 hours of audio in 308 speakers containing Chinese and English. Here's demos that uses this universal vocoder to work with various TTS tasks.</p> -->
+
+
+<p>The source speech is English and the target speech is Chinese.</p>
+
+<p>Demos: </p>
+
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>source speech</strong></th>
+      <th style="text-align: center"><strong>text of source speech</strong></th>
+      <th style="text-align: center"><strong>StyleS2ST (proposed)</strong></th>
+      <th style="text-align: center"><strong>directS2UT</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_138062_spk_BV506.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Maybe that's why they always stay close to me.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_138062_spk_BV506.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_138062_spk_BV506.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+ 
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18709612_spk_BV031.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Most, but not all, authorities normalise follow this convention.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18709612_spk_BV031.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18709612_spk_BV031.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18718463_spk_BV504.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>In most cases, the background method is preferred and italics are used sparingly.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18718463_spk_BV504.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18718463_spk_BV504.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18672968_spk_BV027.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>He was replaced by Los Angeles-based vocalist Bob James.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18672968_spk_BV027.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18672968_spk_BV027.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18779784_spk_BV503.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Hutching now plays bass in Wellington rock band The Accelerants.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18779784_spk_BV503.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18779784_spk_BV503.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_145630_spk_BV506.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Then she again took his hands and studied them carefully.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_145630_spk_BV506.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_145630_spk_BV506.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+ 
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18842844_spk_BV511.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>I would like to focus on the things I would do, he said.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18842844_spk_BV511.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18842844_spk_BV511.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18871437_spk_BV503.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>The "Hougoumont"'s passage was the last convict ship transport to Western Australia.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18871437_spk_BV503.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18871437_spk_BV503.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_18985355_spk_BV030.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>The entire Swiss population is generally well-educated.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_18985355_spk_BV030.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_18985355_spk_BV030.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="zeroshot/en/common_voice_en_19541347_spk_BV031.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Gene duplications account for most of the sequence differences between humans and chimps.</p></td>
+      <td style="text-align: left"><audio src="zeroshot/styles2st/common_voice_en_19541347_spk_BV031.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="zeroshot/directs2ut/common_voice_en_19541347_spk_BV031.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+  </tbody>
+</table>
+
+<h2>2. Demos on Seen Speakers (in-set)<a name="inset"></a></h2>
+<!-- <p>We train a multi-speaker multi-language vocoder as a universal vocoder (not fine-tune) using 295 hours of audio in 308 speakers containing Chinese and English. Here's demos that uses this universal vocoder to work with various TTS tasks.</p> -->
+
+<p>The source speech is English and the target speech is Chinese.</p>
+
+
+<p>Demos: </p>
+<table>
+  <thead>
+    <tr>
+      <th style="text-align: center"><strong>source speech</strong></th>
+      <th style="text-align: center"><strong>text of source speech</strong></th>
+      <th style="text-align: center"><strong>target speech</strong></th>
+      <th style="text-align: center"><strong>text of target speech</strong></th>
+      <th style="text-align: center"><strong>StyleS2ST (proposed)</strong></th>
+      <th style="text-align: center"><strong>directS2UT</strong></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_17848915_spk_BV004.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Fly by night and you waste little time.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_17848915_spk_BV004.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>夜间飞行的话，你浪费的时间很少。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_17848915_spk_BV004.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_17848915_spk_BV004.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+ 
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_17965898_spk_BV001.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>I tend to avoid speaking to customers much, mostly because of my limited German.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_17965898_spk_BV001.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>我经常会避免与客户交流太多，主要是因为我的德语能力有限。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_17965898_spk_BV001.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_17965898_spk_BV001.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_18102315_spk_BV008.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Put your trust in God.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_18102315_spk_BV008.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>相信上帝。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_18102315_spk_BV008.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_18102315_spk_BV008.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_18698352_spk_BV012.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Also, there are lots of small streams passing through the district.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_18698352_spk_BV012.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>此外，还有许多小溪流经该地区。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_18698352_spk_BV012.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_18698352_spk_BV012.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>On the road, participants served as roaming advertisements for Habitat for Humanity.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>在路上，参与者当“人类家园”的漫游广告。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_19106527_spk_BV403.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>He tries to tell her the truth, but she thinks he's only joking.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_19106527_spk_BV403.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>他试图告诉她真相，但她认为他只是在开玩笑。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_19106527_spk_BV403.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_19106527_spk_BV403.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+ 
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_197856_spk_BV700.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>You said you wanted fireworks.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_197856_spk_BV700.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>你说你想要烟火。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_197856_spk_BV700.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_197856_spk_BV700.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>162.Watch over her tonight.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>162.今晚守护她。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_481809_spk_BV700.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>The oxygen's only to help him till the doctor gets here.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_481809_spk_BV700.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>氧气只能在医生来之前帮助他。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_481809_spk_BV700.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_481809_spk_BV700.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+    <tr>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_695419_spk_BV129.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>By the light of their own destruction, I saw them staggering and falling, and their supporters turning to run.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_695419_spk_BV129.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>借着他们毁灭的亮光，我看见他们摇摇欲坠，他们的支持者转身逃跑。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_695419_spk_BV129.wav" controls="" preload=""></audio></td>
+
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_695419_spk_BV129.wav" controls="" preload=""></audio></td>
+ 
+
+    </tr>
+
+  </tbody>
+</table>
+
+
+
+   
+
+
+
+
+      <footer class="site-footer">
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com/">GitHub Pages</a>.</span>
+      </footer>
+    </section>
+</body></html>
