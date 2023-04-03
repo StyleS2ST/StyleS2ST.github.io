@@ -50,6 +50,7 @@ Direct speech-to-speech translation (S2ST) has gradually become popular as it ha
 
 
 <p>The source speech is English and the target speech is Chinese.</p>
+<p>Note that since there is no target Chinese speech in zero-shot, and it is a direct S2ST system which does not rely on text, there is no corresponding Chinese text.</p>
 
 <p>Demos: </p>
 
@@ -59,7 +60,7 @@ Direct speech-to-speech translation (S2ST) has gradually become popular as it ha
       <th style="text-align: center"><strong>source speech</strong></th>
       <th style="text-align: center"><strong>text of source speech</strong></th>
       <th style="text-align: center"><strong>StyleS2ST (proposed)</strong></th>
-      <th style="text-align: center"><strong>directS2UT</strong></th>
+      <th style="text-align: center"><strong>directS2UT<sup>[1]</sup></strong></th>
     </tr>
   </thead>
   <tbody>
@@ -226,13 +227,13 @@ Direct speech-to-speech translation (S2ST) has gradually become popular as it ha
     </tr>
 
     <tr>
-        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
-      <td style="text-align: left"><p>On the road, participants served as roaming advertisements for Habitat for Humanity.</p></td>
-      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
-      <td style="text-align: left"><p>在路上，参与者当“人类家园”的漫游广告。</p></td>
-      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+        <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_19260421_spk_BV129.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>Taxis service the airport to downtown Algiers.</p></td>
+      <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_19260421_spk_BV129.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><p>从机场到阿尔及尔市区的出租车服务。</p></td>
+      <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_19260421_spk_BV129.wav" controls="" preload=""></audio></td>
 
-      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_19028247_spk_BV402.wav" controls="" preload=""></audio></td>
+      <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_19260421_spk_BV129.wav" controls="" preload=""></audio></td>
  
 
     </tr>
@@ -263,9 +264,9 @@ Direct speech-to-speech translation (S2ST) has gradually become popular as it ha
 
     <tr>
         <td style="text-align: left"><audio src="multispk/gt_en/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
-      <td style="text-align: left"><p>162.Watch over her tonight.</p></td>
+      <td style="text-align: left"><p>Watch over her tonight.</p></td>
       <td style="text-align: left"><audio src="multispk/gt_cn/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
-      <td style="text-align: left"><p>162.今晚守护她。</p></td>
+      <td style="text-align: left"><p>今晚守护她。</p></td>
       <td style="text-align: left"><audio src="multispk/styles2st/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
 
       <td style="text-align: left"><audio src="multispk/directs2ut/common_voice_en_30706_spk_BV002.wav" controls="" preload=""></audio></td>
@@ -301,7 +302,10 @@ Direct speech-to-speech translation (S2ST) has gradually become popular as it ha
 </table>
 
 
+<h2>Reference</h2>
 
+[1] S. Popuri, P. Chen, C. Wang, J. Pino, Y. Adi, J. Gu, W. Hsu, and A. Lee, “Enhanced direct speech-to-speech translation using self-supervised pre-training and data augmentation,” in Interspeech
+2022, 23rd Annual Conference of the International Speech Com-munication Association. ISCA, 2022, pp. 5195–5199
    
 
 
